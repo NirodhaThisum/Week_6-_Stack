@@ -10,17 +10,17 @@ using namespace std::chrono;
 
 // Define a node class for the linked list
 class Node {
-public:
-  int data;     // The data stored in the node
-  Node* next;   // A pointer to the next node in the list
+  public:
+    int data;     // The data stored in the node
+    Node* next;   // A pointer to the next node in the list
 };
 
 // Define a stack class that uses a linked list to store data
 class Stack {
-private:
-  Node* top;    // A pointer to the top node in the stack
-  int size;     // The number of nodes in the stack
-  int capacity; // The maximum number of nodes allowed in the stack
+  private:
+    Node* top;    // A pointer to the top node in the stack
+    int size;     // The number of nodes in the stack
+    int capacity; // The maximum number of nodes allowed in the stack
 
 public:
   // Constructor that takes the capacity of the stack as an argument
@@ -51,7 +51,8 @@ public:
     Node* new_node = new Node();    // Create a new node
     new_node->data = data;          
     new_node->next = top;           
-    top = new_node;                 
+    top = new_node; 
+    size++;                
   }
 
   // Function that removes the top node from the stack and returns its data
@@ -70,13 +71,27 @@ public:
   }
 
   // Function that returns the data of the top node without removing it
-  int peek() {
+  int StackTop() {
     if (isEmpty()) {             
       cout << "Stack underflow" << endl;   
       return -1;                  
     }
     return top->data;             
   }
+
+  void Display() {
+  // Traverse through the stack from top to bottom
+  Node* current = this->top;
+  while (current != nullptr) {
+    // Print the data value of the current node
+    cout << current->data << " ";
+
+    // Move to the next node in the stack
+    current = current->next;
+  }
+  cout << endl;
+}
+
 
 };
   
@@ -112,17 +127,21 @@ int main() {
 
     }
     cout << "Time taken For operations = " << (double)sum/(double)500000 << " microseconds";
-    myStack.push(45);
-     myStack.push(423);
-     myStack.push(76);
-     myStack.push(93);
-     myStack.push(23);
-     myStack.pop();
-     myStack.pop();
-     myStack.pop();
-     myStack.pop();
-     myStack.push(150);
-
   
+
+  myStack.push(45);
+  myStack.push(423);
+  myStack.push(76);
+  myStack.push(93);
+  myStack.push(23);
+  myStack.pop();
+  myStack.pop();
+  myStack.pop();
+  myStack.pop();
+  myStack.push(150);
+
+
+     cout << "" <<endl;
+     myStack.Display();
   return 0;
 }
