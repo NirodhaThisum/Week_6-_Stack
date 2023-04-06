@@ -112,6 +112,17 @@ int main() {
 
     }
     cout << "Time taken For operations = " << (double)sum/(double)500000 << " microseconds";
+    myStack.push(45);
+     myStack.push(423);
+     myStack.push(76);
+     myStack.push(93);
+     myStack.push(23);
+     myStack.pop();
+     myStack.pop();
+     myStack.pop();
+     myStack.pop();
+     myStack.push(150);
+
   
   return 0;
 }
